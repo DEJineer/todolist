@@ -6,18 +6,19 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity(name = "user")
+@Entity(name = "users")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long user_id;
+
     private String first_name;
     private String last_name;
     private String address;
 
-    @ManyToMany(mappedBy = "user")
+    @ManyToMany(mappedBy = "users")
     @JsonIgnore
     private List<Task> tasks;
 

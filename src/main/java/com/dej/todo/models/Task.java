@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity(name = "task")
+@Entity(name = "tasks")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Task {
 
@@ -21,16 +21,16 @@ public class Task {
             joinColumns = @JoinColumn(name = "task_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id")
     )
-    private List<com.dej.todo.models.User> user;
+    private List<com.dej.todo.models.User> users;
 
     public Task(){}
 
     public List<User> getUser() {
-        return user;
+        return users;
     }
 
-    public void setUser(List<User> user) {
-        this.user = user;
+    public void setUser(List<User> users) {
+        this.users = users;
     }
 
     public Long getTask_id() {
